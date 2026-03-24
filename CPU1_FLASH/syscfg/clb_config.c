@@ -64,6 +64,9 @@ void initTILE0(uint32_t base)
     //
     CLB_configOutputLUT(base, CLB_OUT0, TILE0_CFG_OUTLUT_0);
 
+    //
+    //  Equation for Output Look-Up Table Block 1 for TILE0: i0
+    //
     CLB_configOutputLUT(base, CLB_OUT1, TILE0_CFG_OUTLUT_1);
 
     CLB_configOutputLUT(base, CLB_OUT2, TILE0_CFG_OUTLUT_2);
@@ -95,7 +98,9 @@ void initTILE0(uint32_t base)
     // CLB_selectLUT4Inputs and CLB_configLUT4Function
     //
     //
-    //  Equation for Look-Up Table Block 0 for TILE0: i0&i1 
+    //  Equation for Look-Up Table Block 0 for TILE0: i0
+    //
+    //  Equation for Look-Up Table Block 1 for TILE0: i1
 
     //
     //  LUT Configuration
@@ -105,11 +110,6 @@ void initTILE0(uint32_t base)
 
     //
     // FSM 0 - 2 are configured in <file>
-    //
-    //
-    //  Output equation for Finite State Machine 0 for TILE0: (e0 | s1) & !e1
-    //  State 0 output equation for Finite State Machine 0 for TILE0: 0
-    //  State 1 output equation for Finite State Machine 0 for TILE0: 1
     //
 
     //

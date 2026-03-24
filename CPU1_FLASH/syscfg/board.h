@@ -73,20 +73,18 @@ extern "C"
 #define myCLB_OUTPUTXBAR0_CLBOUTPUTXBAR_PIN_CONFIG GPIO_0_CLB_OUTPUTXBAR1
 
 //
-// EPWM4 -> PWM1 Pinmux
+// CLB_OUTPUTXBAR2 -> myCLB_OUTPUTXBAR1 Pinmux
 //
 //
-// EPWM4_A - GPIO Settings
+// CLB_OUTPUTXBAR2 - GPIO Settings
 //
-#define GPIO_PIN_EPWM4_A 46
-#define PWM1_EPWMA_GPIO 46
-#define PWM1_EPWMA_PIN_CONFIG GPIO_46_EPWM4_A
+#define GPIO_PIN_CLB_OUTPUTXBAR2 1
+#define myCLB_OUTPUTXBAR1_CLBOUTPUTXBAR_GPIO 1
+#define myCLB_OUTPUTXBAR1_CLBOUTPUTXBAR_PIN_CONFIG GPIO_1_CLB_OUTPUTXBAR2
+
 //
-// EPWM4_B - GPIO Settings
+// EPWM1 -> PWM1 Pinmux
 //
-#define GPIO_PIN_EPWM4_B 47
-#define PWM1_EPWMB_GPIO 47
-#define PWM1_EPWMB_PIN_CONFIG GPIO_47_EPWM4_B
 
 //
 // EPWM5 -> PWM2 Pinmux
@@ -121,20 +119,20 @@ extern "C"
 #define PWM3_EPWMB_PIN_CONFIG GPIO_60_EPWM3_B
 
 //
-// EPWM6 -> PWM4 Pinmux
+// EPWM4 -> PWM4 Pinmux
 //
 //
-// EPWM6_A - GPIO Settings
+// EPWM4_A - GPIO Settings
 //
-#define GPIO_PIN_EPWM6_A 220
-#define PWM4_EPWMA_GPIO 220
-#define PWM4_EPWMA_PIN_CONFIG GPIO_220_EPWM6_A
+#define GPIO_PIN_EPWM4_A 46
+#define PWM4_EPWMA_GPIO 46
+#define PWM4_EPWMA_PIN_CONFIG GPIO_46_EPWM4_A
 //
-// EPWM6_B - GPIO Settings
+// EPWM4_B - GPIO Settings
 //
-#define GPIO_PIN_EPWM6_B 221
-#define PWM4_EPWMB_GPIO 221
-#define PWM4_EPWMB_PIN_CONFIG GPIO_221_EPWM6_B
+#define GPIO_PIN_EPWM4_B 47
+#define PWM4_EPWMB_GPIO 47
+#define PWM4_EPWMB_PIN_CONFIG GPIO_47_EPWM4_B
 //
 // GPIO65 - GPIO Settings
 //
@@ -449,7 +447,10 @@ void myCLB0_init();
 //*****************************************************************************
 void myCLB_OUTPUTXBAR0_init();
 #define myCLB_OUTPUTXBAR0 XBAR_OUTPUT1
-#define myCLB_OUTPUTXBAR0_ENABLED_MUXES (XBAR_MUX00 | XBAR_MUX01 | XBAR_MUX03)
+#define myCLB_OUTPUTXBAR0_ENABLED_MUXES (XBAR_MUX00)
+void myCLB_OUTPUTXBAR1_init();
+#define myCLB_OUTPUTXBAR1 XBAR_OUTPUT2
+#define myCLB_OUTPUTXBAR1_ENABLED_MUXES (XBAR_MUX01)
 
 //*****************************************************************************
 //
@@ -492,7 +493,7 @@ void myDAC1_init();
 // EPWM Configurations
 //
 //*****************************************************************************
-#define PWM1_BASE EPWM4_BASE
+#define PWM1_BASE EPWM1_BASE
 #define PWM1_TBPRD 10000
 #define PWM1_COUNTER_MODE EPWM_COUNTER_MODE_UP
 #define PWM1_TBPHS 0
@@ -531,7 +532,7 @@ void myDAC1_init();
 #define PWM3_TZA_ACTION EPWM_TZ_ACTION_HIGH_Z
 #define PWM3_TZB_ACTION EPWM_TZ_ACTION_HIGH_Z
 #define PWM3_INTERRUPT_SOURCE EPWM_INT_TBCTR_DISABLED
-#define PWM4_BASE EPWM6_BASE
+#define PWM4_BASE EPWM4_BASE
 #define PWM4_TBPRD 10000
 #define PWM4_COUNTER_MODE EPWM_COUNTER_MODE_UP
 #define PWM4_TBPHS 0

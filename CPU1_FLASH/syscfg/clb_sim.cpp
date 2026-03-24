@@ -554,7 +554,7 @@ SC_MODULE(Top)
         SC_THREAD(reset_generator);
         tf = _tf;
 
-        TILE0_OUTLUT_0.i0        (sig_TILE0_FSM_0_OUT);
+        TILE0_OUTLUT_0.i0        (sig_TILE0_LUT_0_OUT);
         TILE0_OUTLUT_0.i1        (sc_zero);
         TILE0_OUTLUT_0.i2        (sc_zero);
 
@@ -567,7 +567,7 @@ SC_MODULE(Top)
         sc_trace(tf, TILE0_OUTLUT_0.OUT, "TILE0_OUTLUT_0.TILE0_OUTLUT_0_output");
         sc_trace(tf, TILE0_OUTLUT_0.OUTPUT_LUT_fn,  "TILE0_OUTLUT_0.TILE0_OUTLUT_0_output_equation");
 
-        TILE0_OUTLUT_1.i0        (sc_zero);
+        TILE0_OUTLUT_1.i0        (sig_TILE0_LUT_1_OUT);
         TILE0_OUTLUT_1.i1        (sc_zero);
         TILE0_OUTLUT_1.i2        (sc_zero);
 
@@ -658,8 +658,8 @@ SC_MODULE(Top)
         sc_trace(tf, TILE0_OUTLUT_7.OUT, "TILE0_OUTLUT_7.TILE0_OUTLUT_7_output");
         sc_trace(tf, TILE0_OUTLUT_7.OUTPUT_LUT_fn,  "TILE0_OUTLUT_7.TILE0_OUTLUT_7_output_equation");
 
-        TILE0_LUT_0.i0        (sig_TILE0_COUNTER_0_count_match1);
-        TILE0_LUT_0.i1        (sig_TILE0_BOUNDARY_IN_out0);
+        TILE0_LUT_0.i0        (sig_TILE0_BOUNDARY_IN_out0);
+        TILE0_LUT_0.i1        (sc_zero);
         TILE0_LUT_0.i2        (sc_zero);
         TILE0_LUT_0.i3        (sc_zero);
         TILE0_LUT_0.OUT      (sig_TILE0_LUT_0_OUT);
@@ -673,7 +673,7 @@ SC_MODULE(Top)
         sc_trace(tf, TILE0_LUT_0.LUT4_fn, "TILE0_LUT_0.TILE0_LUT_0_output_equation");
 
         TILE0_LUT_1.i0        (sc_zero);
-        TILE0_LUT_1.i1        (sc_zero);
+        TILE0_LUT_1.i1        (sig_TILE0_BOUNDARY_IN_out1);
         TILE0_LUT_1.i2        (sc_zero);
         TILE0_LUT_1.i3        (sc_zero);
         TILE0_LUT_1.OUT      (sig_TILE0_LUT_1_OUT);
@@ -700,8 +700,8 @@ SC_MODULE(Top)
         sc_trace(tf, TILE0_LUT_2.OUT, "TILE0_LUT_2.TILE0_LUT_2_output");
         sc_trace(tf, TILE0_LUT_2.LUT4_fn, "TILE0_LUT_2.TILE0_LUT_2_output_equation");
 
-        TILE0_FSM_0.e0        (sig_TILE0_COUNTER_0_count_match1);
-        TILE0_FSM_0.e1        (sig_TILE0_COUNTER_0_count_match2);
+        TILE0_FSM_0.e0        (sc_zero);
+        TILE0_FSM_0.e1        (sc_zero);
         TILE0_FSM_0.xe0        (sc_zero);
         TILE0_FSM_0.xe1        (sc_zero);
         TILE0_FSM_0.clk      (sc_top_clock);
@@ -796,10 +796,10 @@ SC_MODULE(Top)
         sc_trace(tf, TILE0_FSM_2.S1,         "TILE0_FSM_2.TILE0_FSM_2_fsm_s1_output");
         sc_trace(tf, TILE0_FSM_2.OUT,        "TILE0_FSM_2.TILE0_FSM_2_fsm_lut_output");
 
-        TILE0_COUNTER_0.reset        (sig_TILE0_COUNTER_0_count_match2);
+        TILE0_COUNTER_0.reset        (sc_zero);
         TILE0_COUNTER_0.event        (sc_zero);
-        TILE0_COUNTER_0.mode0        (sig_TILE0_BOUNDARY_IN_out0);
-        TILE0_COUNTER_0.mode1        (sc_one);
+        TILE0_COUNTER_0.mode0        (sc_zero);
+        TILE0_COUNTER_0.mode1        (sc_zero);
         TILE0_COUNTER_0.clk                  (sc_top_clock);
         TILE0_COUNTER_0.glbl_en              (sc_top_enable);
         TILE0_COUNTER_0.glbl_rst_n           (sc_top_reset);
@@ -1548,7 +1548,7 @@ SC_MODULE(Top)
         sc_zero.write((bool) 0);
         sc_one.write((bool) 1);
         sig_TILE0_OUTLUT_0_fn.write     ((sc_uint<8>) 0x55);
-        sig_TILE0_OUTLUT_1_fn.write     ((sc_uint<8>) 0x0);
+        sig_TILE0_OUTLUT_1_fn.write     ((sc_uint<8>) 0xaa);
         sig_TILE0_OUTLUT_2_fn.write     ((sc_uint<8>) 0x0);
         sig_TILE0_OUTLUT_3_fn.write     ((sc_uint<8>) 0x0);
         sig_TILE0_OUTLUT_4_fn.write     ((sc_uint<8>) 0x0);
@@ -1556,17 +1556,17 @@ SC_MODULE(Top)
         sig_TILE0_OUTLUT_6_fn.write     ((sc_uint<8>) 0x0);
         sig_TILE0_OUTLUT_7_fn.write     ((sc_uint<8>) 0x0);
         sig_TILE0_LUT_0_OUT.write    ((bool) 0);
-        sig_TILE0_LUT_0_fn.write     ((sc_uint<16>) 0x8888);
+        sig_TILE0_LUT_0_fn.write     ((sc_uint<16>) 0xaaaa);
 
         sig_TILE0_LUT_1_OUT.write    ((bool) 0);
-        sig_TILE0_LUT_1_fn.write     ((sc_uint<16>) 0x0);
+        sig_TILE0_LUT_1_fn.write     ((sc_uint<16>) 0xcccc);
 
         sig_TILE0_LUT_2_OUT.write    ((bool) 0);
         sig_TILE0_LUT_2_fn.write     ((sc_uint<16>) 0x0);
 
-        sig_TILE0_FSM_0_OUT_LUT_fn.write     ((sc_uint<16>) 0xfc);
+        sig_TILE0_FSM_0_OUT_LUT_fn.write     ((sc_uint<16>) 0x0);
         sig_TILE0_FSM_0_S0_fn.write          ((sc_uint<16>) 0x0);
-        sig_TILE0_FSM_0_S1_fn.write          ((sc_uint<16>) 0xffff);
+        sig_TILE0_FSM_0_S1_fn.write          ((sc_uint<16>) 0x0);
         sig_TILE0_FSM_0_xe0_sel.write        ((bool)        false);
         sig_TILE0_FSM_0_xe1_sel.write        ((bool)        false);
         sig_TILE0_FSM_0_S0.write             ((bool) 0);
@@ -1596,10 +1596,10 @@ SC_MODULE(Top)
         sig_TILE0_COUNTER_0_glbl_load_en.write           ((bool) 0);
         sig_TILE0_COUNTER_0_event_load_val.write         ((sc_uint<32>) 0);
         sig_TILE0_COUNTER_0_glbl_en.write                ((bool) 1);
-        sig_TILE0_COUNTER_0_match1_val.write             ((sc_uint<32>) 5);
-        sig_TILE0_COUNTER_0_match2_val.write             ((sc_uint<32>) 10);
-        sig_TILE0_COUNTER_0_match1_out.write             ((sc_uint<32>) 5);
-        sig_TILE0_COUNTER_0_match2_out.write             ((sc_uint<32>) 10);
+        sig_TILE0_COUNTER_0_match1_val.write             ((sc_uint<32>) 0);
+        sig_TILE0_COUNTER_0_match2_val.write             ((sc_uint<32>) 0);
+        sig_TILE0_COUNTER_0_match1_out.write             ((sc_uint<32>) 0);
+        sig_TILE0_COUNTER_0_match2_out.write             ((sc_uint<32>) 0);
         sig_TILE0_COUNTER_0_match_en.write               ((bool) 1);
         sig_TILE0_COUNTER_0_glbl_serializer_mode.write   ((bool) 0);
 #if TYPE == 2 || TYPE == 3

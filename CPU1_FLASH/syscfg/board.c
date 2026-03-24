@@ -183,16 +183,12 @@ void PinMux_init()
 	//
 	GPIO_setPinConfig(myCLB_OUTPUTXBAR0_CLBOUTPUTXBAR_PIN_CONFIG);
 	//
-	// EPWM4 -> PWM1 Pinmux
+	// CLB_OUTPUTXBAR2 -> myCLB_OUTPUTXBAR1 Pinmux
 	//
-	GPIO_setPinConfig(PWM1_EPWMA_PIN_CONFIG);
-	GPIO_setPadConfig(PWM1_EPWMA_GPIO, GPIO_PIN_TYPE_STD);
-	GPIO_setQualificationMode(PWM1_EPWMA_GPIO, GPIO_QUAL_SYNC);
-
-	GPIO_setPinConfig(PWM1_EPWMB_PIN_CONFIG);
-	GPIO_setPadConfig(PWM1_EPWMB_GPIO, GPIO_PIN_TYPE_STD);
-	GPIO_setQualificationMode(PWM1_EPWMB_GPIO, GPIO_QUAL_SYNC);
-
+	GPIO_setPinConfig(myCLB_OUTPUTXBAR1_CLBOUTPUTXBAR_PIN_CONFIG);
+	//
+	// EPWM1 -> PWM1 Pinmux
+	//
 	//
 	// EPWM5 -> PWM2 Pinmux
 	//
@@ -216,7 +212,7 @@ void PinMux_init()
 	GPIO_setQualificationMode(PWM3_EPWMB_GPIO, GPIO_QUAL_SYNC);
 
 	//
-	// EPWM6 -> PWM4 Pinmux
+	// EPWM4 -> PWM4 Pinmux
 	//
 	GPIO_setPinConfig(PWM4_EPWMA_PIN_CONFIG);
 	GPIO_setPadConfig(PWM4_EPWMA_GPIO, GPIO_PIN_TYPE_STD);
@@ -787,7 +783,7 @@ void myCLB0_init(){
 	// pipeline filter
 	//
 	CLB_configLocalInputMux(myCLB0_BASE, CLB_IN0, CLB_LOCAL_IN_MUX_GLOBAL_IN);
-	CLB_configGlobalInputMux(myCLB0_BASE, CLB_IN0, CLB_GLOBAL_IN_MUX_CLB_AUXSIG0);
+	CLB_configGlobalInputMux(myCLB0_BASE, CLB_IN0, CLB_GLOBAL_IN_MUX_EPWM1A);
 	CLB_configGPInputMux(myCLB0_BASE, CLB_IN0, CLB_GP_IN_MUX_EXTERNAL);
 	CLB_enableSynchronization(myCLB0_BASE, CLB_IN0);
 	CLB_selectInputFilter(myCLB0_BASE, CLB_IN0, CLB_FILTER_NONE);
@@ -801,7 +797,7 @@ void myCLB0_init(){
 	// pipeline filter
 	//
 	CLB_configLocalInputMux(myCLB0_BASE, CLB_IN1, CLB_LOCAL_IN_MUX_GLOBAL_IN);
-	CLB_configGlobalInputMux(myCLB0_BASE, CLB_IN1, CLB_GLOBAL_IN_MUX_CLB_AUXSIG1);
+	CLB_configGlobalInputMux(myCLB0_BASE, CLB_IN1, CLB_GLOBAL_IN_MUX_EPWM1B);
 	CLB_configGPInputMux(myCLB0_BASE, CLB_IN1, CLB_GP_IN_MUX_EXTERNAL);
 	CLB_enableSynchronization(myCLB0_BASE, CLB_IN1);
 	CLB_selectInputFilter(myCLB0_BASE, CLB_IN1, CLB_FILTER_NONE);
@@ -820,6 +816,72 @@ void myCLB0_init(){
 	CLB_enableSynchronization(myCLB0_BASE, CLB_IN2);
 	CLB_selectInputFilter(myCLB0_BASE, CLB_IN2, CLB_FILTER_NONE);
 	CLB_disableInputPipelineMode(myCLB0_BASE, CLB_IN2);
+	//
+	// myCLB0 CLB_IN3 initialization
+	//
+	// The following functions configure the CLB input mux and whether the inputs
+	// have synchronization or pipeline enabled; check the device manual for more
+	// information on when a signal needs to be synchronized or go through a
+	// pipeline filter
+	//
+	CLB_configLocalInputMux(myCLB0_BASE, CLB_IN3, CLB_LOCAL_IN_MUX_GLOBAL_IN);
+	CLB_configGlobalInputMux(myCLB0_BASE, CLB_IN3, CLB_GLOBAL_IN_MUX_EPWM1A);
+	CLB_configGPInputMux(myCLB0_BASE, CLB_IN3, CLB_GP_IN_MUX_GP_REG);
+	CLB_enableSynchronization(myCLB0_BASE, CLB_IN3);
+	CLB_selectInputFilter(myCLB0_BASE, CLB_IN3, CLB_FILTER_NONE);
+	CLB_disableInputPipelineMode(myCLB0_BASE, CLB_IN3);
+	//
+	// myCLB0 CLB_IN4 initialization
+	//
+	// The following functions configure the CLB input mux and whether the inputs
+	// have synchronization or pipeline enabled; check the device manual for more
+	// information on when a signal needs to be synchronized or go through a
+	// pipeline filter
+	//
+	CLB_configLocalInputMux(myCLB0_BASE, CLB_IN4, CLB_LOCAL_IN_MUX_GLOBAL_IN);
+	CLB_configGlobalInputMux(myCLB0_BASE, CLB_IN4, CLB_GLOBAL_IN_MUX_EPWM1A);
+	CLB_configGPInputMux(myCLB0_BASE, CLB_IN4, CLB_GP_IN_MUX_GP_REG);
+	CLB_selectInputFilter(myCLB0_BASE, CLB_IN4, CLB_FILTER_NONE);
+	CLB_disableInputPipelineMode(myCLB0_BASE, CLB_IN4);
+	//
+	// myCLB0 CLB_IN5 initialization
+	//
+	// The following functions configure the CLB input mux and whether the inputs
+	// have synchronization or pipeline enabled; check the device manual for more
+	// information on when a signal needs to be synchronized or go through a
+	// pipeline filter
+	//
+	CLB_configLocalInputMux(myCLB0_BASE, CLB_IN5, CLB_LOCAL_IN_MUX_GLOBAL_IN);
+	CLB_configGlobalInputMux(myCLB0_BASE, CLB_IN5, CLB_GLOBAL_IN_MUX_EPWM1A);
+	CLB_configGPInputMux(myCLB0_BASE, CLB_IN5, CLB_GP_IN_MUX_GP_REG);
+	CLB_selectInputFilter(myCLB0_BASE, CLB_IN5, CLB_FILTER_NONE);
+	CLB_disableInputPipelineMode(myCLB0_BASE, CLB_IN5);
+	//
+	// myCLB0 CLB_IN6 initialization
+	//
+	// The following functions configure the CLB input mux and whether the inputs
+	// have synchronization or pipeline enabled; check the device manual for more
+	// information on when a signal needs to be synchronized or go through a
+	// pipeline filter
+	//
+	CLB_configLocalInputMux(myCLB0_BASE, CLB_IN6, CLB_LOCAL_IN_MUX_GLOBAL_IN);
+	CLB_configGlobalInputMux(myCLB0_BASE, CLB_IN6, CLB_GLOBAL_IN_MUX_EPWM1A);
+	CLB_configGPInputMux(myCLB0_BASE, CLB_IN6, CLB_GP_IN_MUX_GP_REG);
+	CLB_selectInputFilter(myCLB0_BASE, CLB_IN6, CLB_FILTER_NONE);
+	CLB_disableInputPipelineMode(myCLB0_BASE, CLB_IN6);
+	//
+	// myCLB0 CLB_IN7 initialization
+	//
+	// The following functions configure the CLB input mux and whether the inputs
+	// have synchronization or pipeline enabled; check the device manual for more
+	// information on when a signal needs to be synchronized or go through a
+	// pipeline filter
+	//
+	CLB_configLocalInputMux(myCLB0_BASE, CLB_IN7, CLB_LOCAL_IN_MUX_GLOBAL_IN);
+	CLB_configGlobalInputMux(myCLB0_BASE, CLB_IN7, CLB_GLOBAL_IN_MUX_EPWM1A);
+	CLB_configGPInputMux(myCLB0_BASE, CLB_IN7, CLB_GP_IN_MUX_GP_REG);
+	CLB_selectInputFilter(myCLB0_BASE, CLB_IN7, CLB_FILTER_NONE);
+	CLB_disableInputPipelineMode(myCLB0_BASE, CLB_IN7);
 	CLB_setGPREG(myCLB0_BASE,0);
 
 	initTILE0(myCLB0_BASE);
@@ -833,6 +895,7 @@ void myCLB0_init(){
 //*****************************************************************************
 void CLB_OUTPUTXBAR_init(){
 	myCLB_OUTPUTXBAR0_init();
+	myCLB_OUTPUTXBAR1_init();
 }
 
 	
@@ -844,9 +907,18 @@ void myCLB_OUTPUTXBAR0_init(){
 	//Mux configuration
 	//
 	XBAR_setOutputMuxConfig(CLBOUTPUTXBAR_BASE, myCLB_OUTPUTXBAR0, XBAR_OUT_MUX00_CLB1_OUT0);
-	XBAR_setOutputMuxConfig(CLBOUTPUTXBAR_BASE, myCLB_OUTPUTXBAR0, XBAR_OUT_MUX01_CLB1_OUT1);
-	XBAR_setOutputMuxConfig(CLBOUTPUTXBAR_BASE, myCLB_OUTPUTXBAR0, XBAR_OUT_MUX03_CLB1_OUT3);
-	XBAR_enableOutputMux(CLBOUTPUTXBAR_BASE, myCLB_OUTPUTXBAR0, XBAR_MUX00 | XBAR_MUX01 | XBAR_MUX03);
+	XBAR_enableOutputMux(CLBOUTPUTXBAR_BASE, myCLB_OUTPUTXBAR0, XBAR_MUX00);
+}
+	
+void myCLB_OUTPUTXBAR1_init(){
+	XBAR_setOutputLatchMode(CLBOUTPUTXBAR_BASE, myCLB_OUTPUTXBAR1, false);
+	XBAR_invertOutputSignal(CLBOUTPUTXBAR_BASE, myCLB_OUTPUTXBAR1, false);
+		
+	//
+	//Mux configuration
+	//
+	XBAR_setOutputMuxConfig(CLBOUTPUTXBAR_BASE, myCLB_OUTPUTXBAR1, XBAR_OUT_MUX01_CLB1_OUT1);
+	XBAR_enableOutputMux(CLBOUTPUTXBAR_BASE, myCLB_OUTPUTXBAR1, XBAR_MUX01);
 }
 
 //*****************************************************************************

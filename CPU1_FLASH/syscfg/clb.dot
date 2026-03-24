@@ -13,8 +13,16 @@ digraph {
                    </TABLE>> color=green shape=plaintext]
     TILE0_OUTLUT_0:out:e -> TILE0_BOUNDARY_OUT:out0:w [color=black]
 
-    TILE0_FSM_0:OUT:e -> TILE0_OUTLUT_0:i0:w [color=green]
+    TILE0_LUT_0:OUT:e -> TILE0_OUTLUT_0:i0:w [color=green]
 
+    TILE0_OUTLUT_1 [label= <<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0'>
+                       <TR><TD PORT='i0'>i0</TD><TD ROWSPAN='4'><b>TILE0_OUTLUT_1</b><br/><br/>out = i0</TD></TR>
+                       <TR><TD PORT='i1'>i1</TD><TD PORT='out'>out</TD></TR>
+                       <TR><TD PORT='i2'>i2</TD></TR>
+                   </TABLE>> color=green shape=plaintext]
+    TILE0_OUTLUT_1:out:e -> TILE0_BOUNDARY_OUT:out1:w [color=black]
+
+    TILE0_LUT_1:OUT:e -> TILE0_OUTLUT_1:i0:w [color=green]
 
 
 
@@ -26,41 +34,29 @@ digraph {
 
 
     TILE0_LUT_0 [label= <<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0'>
-                       <TR><TD PORT='i0'>i0</TD><TD ROWSPAN='4'><b>TILE0_LUT_0</b><br/><br/>out = i0&amp;i1 </TD></TR>
+                       <TR><TD PORT='i0'>i0</TD><TD ROWSPAN='4'><b>TILE0_LUT_0</b><br/><br/>out = i0</TD></TR>
                        <TR><TD PORT='i1'>i1</TD><TD PORT='out'>out</TD></TR>
                        <TR><TD PORT='i2'>i2</TD></TR>
                        <TR><TD PORT='i3'>i3</TD></TR>
                    </TABLE>> color=orange shape=plaintext]
 
-    TILE0_COUNTER_0:count_match1:e -> TILE0_LUT_0:i0:w [color=orange]
-    TILE0_BOUNDARY:in0:e -> TILE0_LUT_0:i1:w [color=orange]
+    TILE0_BOUNDARY:in0:e -> TILE0_LUT_0:i0:w [color=orange]
+
+    TILE0_LUT_1 [label= <<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0'>
+                       <TR><TD PORT='i0'>i0</TD><TD ROWSPAN='4'><b>TILE0_LUT_1</b><br/><br/>out = i1</TD></TR>
+                       <TR><TD PORT='i1'>i1</TD><TD PORT='out'>out</TD></TR>
+                       <TR><TD PORT='i2'>i2</TD></TR>
+                       <TR><TD PORT='i3'>i3</TD></TR>
+                   </TABLE>> color=orange shape=plaintext]
+
+    TILE0_BOUNDARY:in1:e -> TILE0_LUT_1:i1:w [color=orange]
 
 
 
 
-    TILE0_FSM_0 [label=<<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0'>
-                      <TR><TD PORT='e0'>e0</TD><TD ROWSPAN='4'><b>TILE0_FSM_0</b><br/><br/>s0 = 0<br/>s1 = 1<br/>out = (e0 | s1) &amp; !e1</TD></TR>
-                      <TR><TD PORT='e1'>e1</TD><TD PORT='s0'>s0</TD></TR>
-                      <TR><TD PORT='xe0'>xe0</TD><TD PORT='s1'>s1</TD></TR>
-                      <TR><TD PORT='xe1'>xe1</TD><TD PORT='out'>out</TD></TR>
-                   </TABLE>> color=red shape=plaintext]
-
-    TILE0_COUNTER_0:count_match1:e -> TILE0_FSM_0:e0:w [color=red]
-    TILE0_COUNTER_0:count_match2:e -> TILE0_FSM_0:e1:w [color=red]
 
 
 
-
-    TILE0_COUNTER_0 [label=<<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0'>
-                    <TR><TD PORT='reset'>reset</TD><TD ROWSPAN='4'><b>TILE0_COUNTER_0</b><br/><br/>evAction = None</TD><TD PORT='count_zero'>zero</TD></TR>
-                    <TR><TD PORT='event'>event</TD><TD PORT='count_match1'>match1</TD></TR>
-                    <TR><TD PORT='mode0'>mode0</TD><TD PORT='count_match2'>match2</TD></TR>
-                    <TR><TD PORT='mode1'>mode1</TD></TR>
-               </TABLE>> color=blue shape=plaintext]
-
-    TILE0_COUNTER_0:count_match2:e -> TILE0_COUNTER_0:reset:w [color=blue]
-    TILE0_BOUNDARY:in0:e -> TILE0_COUNTER_0:mode0:w [color=blue]
-    1 -> TILE0_COUNTER_0:mode1:w [color=blue]
 
 
 

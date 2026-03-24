@@ -33,8 +33,8 @@ extern "C" {                // support C++ sources
 // TILE0
 //---------------------------------------------------------------------------
 #define TILE0_PIPELINE_MODE 0
-#define TILE0_CFG_OUTLUT_0 0x2a8006
-#define TILE0_CFG_OUTLUT_1 0x0
+#define TILE0_CFG_OUTLUT_0 0x2a8007
+#define TILE0_CFG_OUTLUT_1 0x55000f
 #define TILE0_CFG_OUTLUT_2 0x0
 #define TILE0_CFG_OUTLUT_3 0x0
 #define TILE0_CFG_OUTLUT_4 0x0
@@ -42,33 +42,33 @@ extern "C" {                // support C++ sources
 #define TILE0_CFG_OUTLUT_6 0x0
 #define TILE0_CFG_OUTLUT_7 0x0
 
-#define TILE0_CFG_LUT4_IN0   0x3
-#define TILE0_CFG_LUT4_IN1   0x18
+#define TILE0_CFG_LUT4_IN0   0x18
+#define TILE0_CFG_LUT4_IN1   0x320
 #define TILE0_CFG_LUT4_IN2   0x0
 #define TILE0_CFG_LUT4_IN3   0x0
-#define TILE0_CFG_LUT4_FN10  ((0x00000) | 0x8888)
+#define TILE0_CFG_LUT4_FN10  ((0xcccc0000) | 0xaaaa)
 #define TILE0_CFG_LUT4_FN2   0x0
 
-#define TILE0_CFG_FSM_EXT_IN0      0x3
-#define TILE0_CFG_FSM_EXT_IN1      0x1
+#define TILE0_CFG_FSM_EXT_IN0      0x0
+#define TILE0_CFG_FSM_EXT_IN1      0x0
 #define TILE0_CFG_FSM_EXTRA_IN0    0x0
 #define TILE0_CFG_FSM_EXTRA_IN1    0x0
-#define TILE0_CFG_FSM_NEXT_STATE_0 ((0xffff0000) | 0x0)
+#define TILE0_CFG_FSM_NEXT_STATE_0 ((0x00000) | 0x0)
 #define TILE0_CFG_FSM_NEXT_STATE_1 ((0x00000) | 0x0)
 #define TILE0_CFG_FSM_NEXT_STATE_2 ((0x00000) | 0x0)
-#define TILE0_CFG_FSM_LUT_FN10     ((0x00000) | 0xfc)
+#define TILE0_CFG_FSM_LUT_FN10     ((0x00000) | 0x0)
 #define TILE0_CFG_FSM_LUT_FN2      0x0
 #define TILE0_FSM_MISC_CONTROL     0x0
 
-#define TILE0_CFG_COUNTER_RESET   0x1
+#define TILE0_CFG_COUNTER_RESET   0x0
 #define TILE0_CFG_COUNTER_EVENT   0x0
-#define TILE0_CFG_COUNTER_MODE_0  0x18
-#define TILE0_CFG_COUNTER_MODE_1  0x8
+#define TILE0_CFG_COUNTER_MODE_0  0x0
+#define TILE0_CFG_COUNTER_MODE_1  0x0
 #define TILE0_CFG_TAP_SEL          0x0
 #define TILE0_CFG_MISC_CONTROL    (0x0 | TILE0_FSM_MISC_CONTROL)
 
-#define TILE0_COUNTER_0_MATCH1_VAL  5
-#define TILE0_COUNTER_0_MATCH2_VAL  10
+#define TILE0_COUNTER_0_MATCH1_VAL  0
+#define TILE0_COUNTER_0_MATCH2_VAL  0
 #define TILE0_COUNTER_0_LOAD_VAL    0
 #define TILE0_COUNTER_1_MATCH1_VAL  0
 #define TILE0_COUNTER_1_MATCH2_VAL  0

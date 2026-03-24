@@ -24,7 +24,7 @@ __interrupt void INT_PS5_XINT_ISR(void);
 
 void main(void)
 {
-    bool sensor = false;
+
 
 
     Device_init();
